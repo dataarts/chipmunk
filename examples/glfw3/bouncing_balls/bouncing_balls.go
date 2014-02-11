@@ -1,15 +1,16 @@
 package main
 
 import (
-	"github.com/go-gl/gl"
-	glfw "github.com/go-gl/glfw3"
-	"github.com/vova616/chipmunk"
-	"github.com/vova616/chipmunk/vect"
 	"math"
 	"math/rand"
 	"os"
 	"runtime"
 	"time"
+
+	"github.com/dataarts/chipmunk"
+	"github.com/dataarts/chipmunk/vect"
+	"github.com/go-gl/gl"
+	glfw "github.com/go-gl/glfw3"
 )
 
 var (

@@ -1,9 +1,10 @@
 package chipmunk
 
 import (
-	"github.com/vova616/chipmunk/vect"
 	"log"
 	"math"
+
+	"github.com/dataarts/chipmunk/vect"
 	//"fmt"
 )
 

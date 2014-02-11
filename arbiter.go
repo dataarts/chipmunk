@@ -2,8 +2,8 @@ package chipmunk
 
 import (
 	"fmt"
-	"github.com/vova616/chipmunk/transform"
-	"github.com/vova616/chipmunk/vect"
+	"github.com/dataarts/chipmunk/transform"
+	"github.com/dataarts/chipmunk/vect"
 
 	"time"
 )

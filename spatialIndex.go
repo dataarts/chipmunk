@@ -1,8 +1,9 @@
 package chipmunk
 
 import (
-	"github.com/vova616/chipmunk/vect"
 	"time"
+
+	"github.com/dataarts/chipmunk/vect"
 )
 
 type SpatialIndexQueryFunc func(a, b Indexable)

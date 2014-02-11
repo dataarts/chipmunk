@@ -5,7 +5,7 @@ package chipmunk
 #cgo LDFLAGS: -O3 -std=gnu99 -ffast-math
 
 typedef struct  {
-	float X,Y; 
+	float X,Y;
 } vect2;
 
 typedef struct {
@@ -16,7 +16,7 @@ typedef struct {
 	float nMass, tMass, bounce;
 
 	float jnAcc, jtAcc, jBias ;
-	float bias    ;            
+	float bias    ;
 
 	int hash ;
 } Contact;
@@ -25,7 +25,7 @@ typedef struct {
 
 	float m;
 
-	float m_inv; 
+	float m_inv;
 
 
 	float i;
@@ -62,12 +62,12 @@ inline
 void Impulse(Body *a, Body *b, Contact* con, float surfx, float surfy, float u) {
 		vect2 r1 = con->r1;
 		vect2 r2 = con->r2;
-		vect2 n = con->n;	
-		float vbn = ((((-r2.Y*b->w_bias)+b->v_bias.X)-((-r1.Y*a->w_bias)+a->v_bias.X))*n.X) + 
+		vect2 n = con->n;
+		float vbn = ((((-r2.Y*b->w_bias)+b->v_bias.X)-((-r1.Y*a->w_bias)+a->v_bias.X))*n.X) +
 					((((r2.X*b->w_bias)+b->v_bias.Y)-((r1.X*a->w_bias)+a->v_bias.Y))*n.Y);
 
 		vect2 vr = {(-r2.Y*b->w+b->v.X)-(-r1.Y*a->w+a->v.X), (r2.X*b->w+b->v.Y)-(r1.X*a->w+a->v.Y)};
-		float vrn = (vr.X*n.X) + (vr.Y*n.Y);	
+		float vrn = (vr.X*n.X) + (vr.Y*n.Y);
 
 		float vrt = ((vr.X+surfx)*-n.Y) + ((vr.Y+surfy)*n.X);
 
@@ -76,7 +76,7 @@ void Impulse(Body *a, Body *b, Contact* con, float surfx, float surfy, float u) 
 		con->jBias = jbnOld+jbn;
 		if (0 > con->jBias) {
 			con->jBias = 0;
-		}	
+		}
 
 		float jn = -(con->bounce + vrn) * con->nMass;
 		float jnOld = con->jnAcc;
@@ -129,7 +129,7 @@ void Impulse(Body *a, Body *b, Contact* con, float surfx, float surfy, float u) 
 /*
 import "C"
 import (
-	. "github.com/vova616/chipmunk/vect"
+	. "github.com/dataarts/chipmunk/vect"
 	"unsafe"
 )
 
