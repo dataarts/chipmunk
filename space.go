@@ -25,7 +25,7 @@ type Space struct {
 	/// A value of 0.9 would mean that each body's velocity will drop 10% per second.
 	/// The default value is 1.0, meaning no damping is applied.
 	/// @note This damping value is different than those of cpDampedSpring and cpDampedRotarySpring.
-	damping vect.Float
+	Damping vect.Float
 
 	/// Speed threshold for a body to be considered idle.
 	/// The default value of 0 means to let the space guess a good threshold based on gravity.
@@ -97,7 +97,7 @@ func NewSpace() (space *Space) {
 
 	space.Gravity = vect.Vector_Zero
 
-	space.damping = 1
+	space.Damping = 1
 
 	space.collisionSlop = 0.5
 	space.collisionBias = vect.Float(math.Pow(1.0-0.1, 60))
@@ -231,7 +231,7 @@ func (space *Space) Step(dt vect.Float) {
 		con.PreStep(dt)
 	}
 
-	damping := vect.Float(math.Pow(float64(space.damping), float64(dt)))
+	damping := vect.Float(math.Pow(float64(space.Damping), float64(dt)))
 
 	for _, body := range bodies {
 		if body.Enabled {
